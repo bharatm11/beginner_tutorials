@@ -31,7 +31,6 @@
 // %Tag(MSG_HEADER)%
 #include "std_msgs/String.h"
 // %EndTag(MSG_HEADER)%
-
 #include <sstream>
 
 /**
@@ -103,7 +102,7 @@ int main(int argc, char **argv)
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << "hello world " << count;
+    ss << "My name is Bharat" << count;
     msg.data = ss.str();
     // %EndTag(FILL_MESSAGE)%
 
