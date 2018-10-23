@@ -1,11 +1,6 @@
-cppcheck --enable=all --check-config --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
-(information) Couldn't find path given by -I 'include/'
+bharat@bharat-Inspiron-15-7000-Gaming:~/enpm_soft_dev_course/week7/catkin_ws$ cppcheck --enable=all --std=c++11 -I ../../../../../opt/ros/kinetic/include/ -I ../../../../../usr/include/ --check-config --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
 Checking src/beginner_tutorials/src/listener.cpp...
-[src/beginner_tutorials/src/listener.cpp:29]: (information) Include file: "ros/ros.h" not found.
-[src/beginner_tutorials/src/listener.cpp:30]: (information) Include file: "std_msgs/String.h" not found.
 1/2 files checked 44% done
 Checking src/beginner_tutorials/src/talker.cpp...
-[src/beginner_tutorials/src/talker.cpp:30]: (information) Include file: "ros/ros.h" not found.
-[src/beginner_tutorials/src/talker.cpp:33]: (information) Include file: "std_msgs/String.h" not found.
 2/2 files checked 100% done
 
