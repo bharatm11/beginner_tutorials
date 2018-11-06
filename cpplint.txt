@@ -1,4 +1,8 @@
-bharat@bharat-Inspiron-15-7000-Gaming:~/enpm_soft_dev_course/week7/catkin_ws/src/beginner_tutorials/src$ cpplint talker.cpp listener.cpp 
+bharat@bharat-Inspiron-15-7000-Gaming:~/enpm_soft_dev_course/week7/catkin_ws/src/beginner_tutorials/src$ cpplint ModifyString.cpp talker.cpp listener.cpp 
+Done processing ModifyString.cpp
+talker.cpp:23:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ModifyString::Request  &req  [runtime/references] [2]
+talker.cpp:24:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ModifyString::Response &res  [runtime/references] [2]
 Done processing talker.cpp
 Done processing listener.cpp
+Total errors found: 2
 
