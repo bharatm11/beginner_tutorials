@@ -59,17 +59,17 @@ rostopic echo /chatter
 ```
 roslaunch beginner_tutorials beginner_tutorial.launch freq:=15
 ```
-where freq is a argument of publisher frequency
+where freq is the argument of publisher frequency
 
 ## Running the Service
 
 Make sure the talker has been launched, then enter run service with value of num as 3 or anything else
 ```
-rosservice call /ChangeString "num: 3"
+rosservice call /ModifyString "num: 3"
 ```
 or
 ```
-rosservice call /ChangeString "num: 2"
+rosservice call /ModifyString "num: 2"
 ```
 to change the message published by talker.
 
