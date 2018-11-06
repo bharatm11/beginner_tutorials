@@ -1,6 +1,9 @@
 <launch>
-	<node pkg="beginner_tutorials" type="talker" name="talker">
-        <param name="freq" value="15.0"/>
+	<!-- arg to be passed  -->
+        <arg name="freq" /> 
+
+        <node pkg="beginner_tutorials" type="talker" name="talker">
+        <param name="freq" value="$(arg freq)"/>
 	</node>
 
 	<node pkg="beginner_tutorials" type="listener" name="listener">
