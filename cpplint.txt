@@ -6,3 +6,15 @@ Done processing talker.cpp
 Done processing listener.cpp
 Total errors found: 2
 
+bharat@bharat-Inspiron-15-7000-Gaming:~/enpm_soft_dev_course/week7/catkin_ws/src/beginner_tutorials/src$ cpplint listener.cpp talker.cpp ModifyString.cpp 
+Done processing listener.cpp
+talker.cpp:58:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ModifyString::Request &req  [runtime/references] [2]
+talker.cpp:59:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ModifyString::Response &res  [runtime/references] [2]
+Done processing talker.cpp
+Done processing ModifyString.cpp
+Total errors found: 2
+bharat@bharat-Inspiron-15-7000-Gaming:~/enpm_soft_dev_course/week7/catkin_ws/src/beginner_tutorials/test$ cpplint TalkerTest.cpp 
+Done processing TalkerTest.cpp
+
+
+
