@@ -1,6 +1,7 @@
 <launch>
 	<!-- arg to be passed  -->
-        <arg name="freq" /> 
+        <arg name="freq" />
+	<arg name="record" /> 
 
         <node pkg="beginner_tutorials" type="talker" name="talker">
         <param name="freq" value="$(arg freq)"/>
@@ -8,6 +9,10 @@
 
 	<node pkg="beginner_tutorials" type="listener" name="listener">
 	</node>
+
+	<node pkg="rosbag" type="record" name="rosbag_record_talker" args="record -o /$(find beginner_tutorials)/myrosbag.bag -a" if="$(arg record)">
+	</node>
+
 
 	
 </launch>
