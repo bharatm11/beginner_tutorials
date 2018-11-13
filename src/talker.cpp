@@ -41,13 +41,12 @@
 */
 
 #include <ros/console.h>
+#include<tf/transform_broadcaster.h>
 #include <sstream>
 #include "std_msgs/String.h"
 #include "ros/ros.h"
 #include "beginner_tutorials/ModifyString.h"
-#include<tf/transform_broadcaster.h>
 
-std::string frame_name = "talk";
 std::stringstream ss;
 int freqRate = 20;
 
@@ -56,8 +55,8 @@ int freqRate = 20;
 * @param[out] &res is a ROS service response.
 * @return bool
 */
-bool change(beginner_tutorials::ModifyString::Request  &req,
-  beginner_tutorials::ModifyString::Response &res) {
+bool change(beginner_tutorials::ModifyString::Request &req,
+   beginner_tutorials::ModifyString::Response &res) {
     ss.str(" ");
     if (req.num == 1) {
       res.name = "Now change to: Bharat";
@@ -84,8 +83,9 @@ bool change(beginner_tutorials::ModifyString::Request  &req,
     tf::Transform transform;
     transform.setOrigin(tf::Vector3(0, 0, 0.04));
     tf::Quaternion q;
-    q.setRPY(0,0,M_PI);
+    q.setRPY(0, 0, M_PI);
     transform.setRotation(q);
+    std::string frame_name = "talk";
 
     if (ros::ok()) {
       while (ros::ok()) {
@@ -94,7 +94,8 @@ bool change(beginner_tutorials::ModifyString::Request  &req,
         ROS_INFO("%s", msg.data.c_str());
         ROS_DEBUG("Publishing msgs");
         chatter_pub.publish(msg);
-        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), frame_name, "world"));
+        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),
+                                                          frame_name, "world"));
         ros::spinOnce();
         loop_rate.sleep();
         ++count;

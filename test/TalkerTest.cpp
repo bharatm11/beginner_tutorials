@@ -47,7 +47,7 @@
 #include "beginner_tutorials/ModifyString.h"
 
 /** @brief TEST(TalkerTest, ChangeString) will
-* test the ChangeString service of the talker node*/
+* test the ModifyString service of the talker node*/
 TEST(TalkerTest, ModifyString) {
   ros::NodeHandle n;
   ros::ServiceClient client = n.serviceClient<beginner_tutorials::ModifyString>(
