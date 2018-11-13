@@ -11,7 +11,9 @@
 #include "std_msgs/String.h"
 #include "ros/ros.h"
 #include "beginner_tutorials/ModifyString.h"
+#include<tf/transform_broadcaster.h>
 
+std::string frame_name = "talk";
 std::stringstream ss;
 int freqRate = 20;
 
@@ -43,6 +45,12 @@ bool change(beginner_tutorials::ModifyString::Request  &req,
     ros::Rate loop_rate(freqRate);
     ROS_WARN("Default freq of 20Hz will be used if freq is not passed");
     int count = 0;
+    static tf::TransformBroadcaster br;
+  	tf::Transform transform;
+  	transform.setOrigin(tf::Vector3(0, 0, 0.04));
+  	tf::Quaternion q;
+  	q.setRPY(0,0,M_PI);
+  	transform.setRotation(q);
     if (ros::ok()) {
       while (ros::ok()) {
         std_msgs::String msg;
@@ -50,6 +58,7 @@ bool change(beginner_tutorials::ModifyString::Request  &req,
         ROS_INFO("%s", msg.data.c_str());
         ROS_DEBUG("Publishing msgs");
         chatter_pub.publish(msg);
+        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), frame_name, "world"));
         ros::spinOnce();
         loop_rate.sleep();
         ++count;
