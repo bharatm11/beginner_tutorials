@@ -1,0 +1,9 @@
+<launch>
+        <node pkg="beginner_tutorials" type="talker" name="talker">
+        <param name="feq" value="10"/>
+	</node>
+
+	<test test-name="tests_talker" pkg="beginner_tutorials" type="tests_talker" />
+
+	
+</launch>
